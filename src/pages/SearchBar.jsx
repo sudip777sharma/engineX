@@ -34,8 +34,18 @@ const SearchBar = () => {
             <div className="searchInput_container">
                 <TbSearch />
                 <input className='searchInput' type="text" value={searchInput} onChange={e => setSearchInput(e.target.value)} onKeyDown={(e) => e.code === "Enter" && search(e)} />
-                <MdMic />
-                <HiCamera />
+                {
+                    window.screen.width > 576 && (
+                        <>
+                            <MdMic />
+                            <HiCamera />
+                        </>
+                    )
+                }
+                <button className='searchResBtn' onClick={e => search(e)} >
+                    <TbSearch />
+                    search
+                </button>
             </div>
         </>
     )
